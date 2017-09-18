@@ -96,7 +96,7 @@ var ViewModel = function() {
             url: wikiURL,
             // handling error in the AJAX call.
             error: function(XMLHttpRequest, textStatus, errorThrown) {
-                self.infowindow.setContent('<div style="width: 300px; height: 40px;"><p style="text-align: center;">No info available at this time.<br> How about exploring it yourself?</p></div>');
+                self.infowindow.setContent('<div style="width: 300px; height: 60px;"><p style="text-align: center;">No info about <strong>'+loc+'</strong> available at this time.<br> How about exploring it yourself?</p></div>');
             },
             // If the call is successful
             success: function(results) {
