@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Map</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:700%7COpen+Sans:300' rel='stylesheet' type='text/css'>
+		<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		div.col-sm-9 {
+			height: 100%;
+		}
+		div#map {
+			height: 100%;
+		}
+		input {
+			width: 100%;
+		}
+		#list {
+			margin-left: 10px;
+		}
+		#loclist {
+			margin-top: 10px;
+			padding-left: 0px;
+			list-style-type: none;
+		}
+
+		li#listitem {
+			margin-top: 4px;
+			margin-bottom: 4px;
+			font-size: 20px;
+			cursor: pointer;
+		}
+		li#listitem:hover{
+			color: #ff0000;
+		}
+		#name {
+			float: left;
+		}
+		#extract {
+			padding: 10px;
+			float: left;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="col-sm-3">
+  		<form id="list">
+  			<h1>Places to visit in Jaipur, Rajasthan</h1>
+  		  <input type="text" data-bind="textInput: filterInput" placeholder="Search For a Location">
+  		<ul id="loclist" data-bind="foreach: computedList">
+  			<li id="listitem"><span data-bind="text: name, click: $parent.displayInfoWindow"></span></li>
+  		</ul>
+  		</form>
+		</div>
+		<div class="col-sm-9">
+			<div id="map"></div>
+		</div>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+		<script src="js/knockout-3.4.0.js"></script>
+		<script src="js/app.js"></script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDtpCcaCMHj8umilMq1IyqSRpUnLwou8Po&libraries=places&callback=initMap">
+		</script>
+	</body>
+</html>
