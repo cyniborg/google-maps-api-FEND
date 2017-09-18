@@ -169,3 +169,10 @@ function initMap() {
   });
 
 }
+
+//Google maps error handling
+function mapError() {
+  var error = '<h2>If you are seeing this, then there is an issue with loading the map. Please check your internet or check the browser console for more info.</h2>';
+  $('.col-sm-3').hide();
+  $('#map').append(error);
+}
