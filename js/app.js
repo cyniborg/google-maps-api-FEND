@@ -82,14 +82,14 @@ var ViewModel = function() {
         self.ajax(loco);
     };
 
-    // definition for ajax function to get foursquare information
+    // definition for ajax function to get wikipedia information
     self.ajax = function(loc) {
       var encodedCityName = encodeURI(loc);
       var wikiURL = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles="+encodedCityName+"callback=?&origin=localost";
         // creating an object to pass into the jquery ajax call
         var call = {
           // request type ( GET or POST )
-	          type: "GET",
+	    type: "GET",
             beforeSend: function(request) {
               request.setRequestHeader("Origin", "http://localhost/");
             },
