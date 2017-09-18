@@ -85,24 +85,24 @@ var ViewModel = function() {
     // definition for ajax function to get wikipedia information
     self.ajax = function(loc) {
       var encodedCityName = encodeURI(loc);
-      var wikiURL = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles="+encodedCityName+"callback=?&origin=localost";
+      var wikiURL = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&origin="+"*"+"&titles="+encodedCityName;
         // creating an object to pass into the jquery ajax call
         var call = {
           // request type ( GET or POST )
-	    type: "GET",
-            beforeSend: function(request) {
-              request.setRequestHeader("Origin", "http://localhost/");
-            },
+	          type: "GET",
             url: wikiURL,
+            dataType: "jsonp",
             // handling error in the AJAX call.
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 self.infowindow.setContent('<div style="width: 300px; height: 60px;"><p style="text-align: center;">No info about <strong>'+loc+'</strong> available at this time.<br> How about exploring it yourself?</p></div>');
             },
             // If the call is successful
             success: function(results) {
+              // storig the page id in key to access further information
+              var key = Object.keys(results.query.pages);
                 // Storing the returned JSON
-                var name = results.response.query.pages.title;
-                var extract= results.response.query.pages.extract;
+                var name = results.query.pages[key[0]].title;
+                var extract= results.query.pages[key[0]].extract || 'No information available for this location';
                 // using the data and creating the content string for infowindow
                 var contentString = '<div id="name"><h4>'+name+'</h4></div><div id="extract">'+extract+'</div>';
                 // set the infowindow context with the completed html from one line above
@@ -150,8 +150,8 @@ var ViewModel = function() {
                 self.poiList()[i].showMarker(null);
             }
         }
-        // we order the list in alphabetical order before returning
-        return filterArr.sort(function(l, r){ return l.name() > r.name() ? 1 : -1;});
+        // alphabetical sorting
+        return filterArr.sort(function(a, b){ return a.name() > b.name() ? 1 : -1;});
     });
 };
 
