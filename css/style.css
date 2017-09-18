@@ -1,39 +1,47 @@
 html, body {
-			height: 100%;
-			margin: 0;
-			padding: 0;
-		}
-		div.col-sm-9 {
-			height: 100%;
-		}
-		div#map {
-			height: 100%;
-		}
-		input {
-			width: 100%;
-		}
-		#list {
-			margin-left: 10px;
-		}
-		#loclist {
-			margin-top: 10px;
-			padding-left: 0px;
-			list-style-type: none;
-		}
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-		li#listitem {
-			margin-top: 4px;
-			margin-bottom: 4px;
-			font-size: 20px;
-			cursor: pointer;
-		}
-		li#listitem:hover{
-			color: #ff0000;
-		}
-		#name {
-			float: left;
-		}
-		#extract {
-			padding: 10px;
-			float: left;
-		}
+div.col-sm-9 {
+  height: 100%;
+}
+
+div#map {
+  height: 100%;
+}
+
+input {
+  width: 100%;
+}
+
+#list {
+  margin-left: 10px;
+}
+
+#loclist {
+  margin-top: 10px;
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+li#listitem {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+li#listitem:hover {
+  color: #ff0000;
+}
+
+#name {
+  float: left;
+}
+
+#extract {
+  padding: 10px;
+  float: left;
+}
