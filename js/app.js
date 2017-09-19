@@ -105,10 +105,10 @@ $(window).load(function() {
         if (self.poiList()[i].name().toLowerCase().indexOf(self.filterInput().toLowerCase()) != -1) {
           // pushing the found content to the filter array
           filterArr.push(self.poiList()[i]);
-          self.poiList()[i].showMarker(map);
+          self.poiList()[i].showMarker(true);
         } else {
           // hiding the markers that are not returned in the search
-          self.poiList()[i].showMarker(null);
+          self.poiList()[i].showMarker(false);
         }
       }
       // alphabetical sorting
@@ -145,14 +145,8 @@ $(window).load(function() {
       visible: true
     });
     // function to display or hide marker
-    self.showMarker = function(mapOrNull) {
-      if (mapOrNull === map) {
-        if (self.marker.map === null) {
-          self.marker.setVisible(true);
-        }
-      } else {
-        self.marker.setVisible(false);
-      }
+    self.showMarker = function(bool) {
+      self.marker.setVisible(bool);
     };
   };
   ko.applyBindings(new ViewModel());
